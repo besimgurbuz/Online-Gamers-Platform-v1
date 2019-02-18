@@ -1,0 +1,71 @@
+﻿@model OnlineGamersPlatform.ViewModel.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .u-form {
+        padding-top: 10%;
+        height: 1080px;
+        color: #fff;
+        background: url('../../Content/image/game6.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+    .footer {
+        position: relative !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .input-validation-error {
+        border: 2px solid red;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<div class="u-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-6">
+                @if (ViewBag.e == true)
+                {
+                    <div class="alert alert-danger">
+                        @ViewBag.Error
+                    </div>
+                }
+                @if (ViewBag.s == true)
+                {
+                    <div class="alert alert-success">
+                        @ViewBag.Success
+                    </div>
+                }
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Username)
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Username" })
+                        @Html.ValidationMessageFor(m => m.Username)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", type = "password", placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                    <button type="submit" class="btn btn-outline-danger">Go In!</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+

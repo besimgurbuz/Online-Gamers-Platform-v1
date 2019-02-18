@@ -1,0 +1,10 @@
+﻿footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.context {
+    margin-top: 8%;
+}

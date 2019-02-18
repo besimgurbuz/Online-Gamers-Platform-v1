@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineGamersPlatformModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OnlineGamersPlatformEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gamer" EntityType="OnlineGamersPlatformModel.Gamer" />
+    <EntitySet Name="Game" EntityType="OnlineGamersPlatformModel.Game" />
+    <EntitySet Name="Follow" EntityType="OnlineGamersPlatformModel.Follow" />
+  </EntityContainer>
+  <EntityType Name="Gamer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gameType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <Property Name="isProf" Type="Boolean" Nullable="false" />
+    <Property Name="profilePhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gameType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gameName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gameNew" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gameNew2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="gameNew3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Follow">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="following" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

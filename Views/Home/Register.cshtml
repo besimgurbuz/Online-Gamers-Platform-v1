@@ -1,0 +1,113 @@
+﻿@model OnlineGamersPlatform.Models.EntityFramework.Gamer
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var types = new List<string>();
+    types.Add("FPS");
+    types.Add("MMORPG");
+    types.Add("RPG");
+    types.Add("MOBA");
+    types.Add("INDIE");
+    types.Add("RACING");
+    types.Add("SPORT");
+
+}
+<style>
+    .u-form {
+        padding-top: 10%;   
+        height: 1080px;
+        color: #fff;
+        background: url('../../Content/image/game5.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+    .footer {
+        position: relative !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+
+    .input-validation-error {
+        border: 2px solid red;
+    }
+</style>
+<div class="u-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @if (ViewBag.e == true)
+                {
+                    <div class="alert alert-danger">
+                        @ViewBag.Error
+                    </div>
+                }
+                @if (ViewBag.s == true)
+                {
+                    <div class="alert alert-success">
+                        @ViewBag.Success
+                    </div>
+                }
+                @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.name)
+                        @Html.TextBoxFor(m => m.name, new { @class = "form-control", placeholder = "Your full name" })
+                        @Html.ValidationMessageFor(m => m.name)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.username)
+                        @Html.TextBoxFor(m => m.username, new { @class = "form-control", placeholder = "Username" })
+                        @Html.ValidationMessageFor(m => m.name)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.email)
+                        @Html.TextBoxFor(m => m.email, new { type = "email", @class = "form-control", placeholder = "E-mail" })
+                        @Html.ValidationMessageFor(m => m.name)
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.gameType)
+                        @Html.DropDownListFor(m => m.gameType, new SelectList(types, "gameType"), "Select Game type", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.gameType)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.birthday)
+                        @Html.TextBoxFor(m => m.birthday, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(m => m.birthday)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.password)
+                        @Html.TextBoxFor(m => m.password, new { type = "password", @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.password)
+                    </div>
+                    <div class="custom-radio">
+                        <label>
+                            Are you a professional player?
+                        </label><br />
+                        <label>
+                            @Html.RadioButtonFor(m => m.isProf, "true")Yes
+                        </label>
+                        <label>
+                            @Html.RadioButtonFor(m => m.isProf, "false")No
+                        </label>
+                        @Html.ValidationMessageFor(m => m.isProf)
+                    </div>
+                    <button type="submit" class="btn btn-outline-danger">Ready!</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+

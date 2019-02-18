@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnlineGamersPlatformModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Follow">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="following" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gameType" Type="nvarchar" MaxLength="50" />
+    <Property Name="gameName" Type="nvarchar" MaxLength="50" />
+    <Property Name="gameNew" Type="text" />
+    <Property Name="gameNew2" Type="text" />
+    <Property Name="gameNew3" Type="text" />
+  </EntityType>
+  <EntityType Name="Gamer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="gameType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="text" />
+    <Property Name="birthday" Type="smalldatetime" />
+    <Property Name="isProf" Type="bit" Nullable="false" />
+    <Property Name="profilePhoto" Type="image" />
+  </EntityType>
+  <EntityContainer Name="OnlineGamersPlatformModelStoreContainer">
+    <EntitySet Name="Follow" EntityType="Self.Follow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gamer" EntityType="Self.Gamer" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

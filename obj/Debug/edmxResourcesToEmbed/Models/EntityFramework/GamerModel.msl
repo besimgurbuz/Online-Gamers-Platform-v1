@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OnlineGamersPlatformModelStoreContainer" CdmEntityContainer="OnlineGamersPlatformEntities">
+    <EntitySetMapping Name="Gamer">
+      <EntityTypeMapping TypeName="OnlineGamersPlatformModel.Gamer">
+        <MappingFragment StoreEntitySet="Gamer">
+          <ScalarProperty Name="profilePhoto" ColumnName="profilePhoto" />
+          <ScalarProperty Name="isProf" ColumnName="isProf" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="gameType" ColumnName="gameType" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Game">
+      <EntityTypeMapping TypeName="OnlineGamersPlatformModel.Game">
+        <MappingFragment StoreEntitySet="Game">
+          <ScalarProperty Name="gameNew3" ColumnName="gameNew3" />
+          <ScalarProperty Name="gameNew2" ColumnName="gameNew2" />
+          <ScalarProperty Name="gameNew" ColumnName="gameNew" />
+          <ScalarProperty Name="gameName" ColumnName="gameName" />
+          <ScalarProperty Name="gameType" ColumnName="gameType" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Follow">
+      <EntityTypeMapping TypeName="OnlineGamersPlatformModel.Follow">
+        <MappingFragment StoreEntitySet="Follow">
+          <ScalarProperty Name="following" ColumnName="following" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

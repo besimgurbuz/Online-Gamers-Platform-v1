@@ -1,0 +1,55 @@
+﻿@model List<OnlineGamersPlatform.Models.EntityFramework.Gamer>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .avatar{
+        border-radius: 50%;
+        margin-bottom:10%;
+    }
+    .img{
+        padding-top: 2%;
+    }
+    .context {
+        height:1000px;
+        margin-top: 10%;
+    }
+    .text{
+        padding-top:5%;
+    }
+    footer {
+        margin-bottom: 0;
+        margin-top: 50%;
+    }
+    
+</style>
+<section>
+    <div class="container context">
+        <h3>Find new playmate!</h3>
+        <table class="table table-borderless" id="gamers">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Game Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var gamer in Model)
+                {
+                    if (HttpContext.Current.User.Identity.Name != gamer.username)
+                    {
+                        <tr>
+                            <th scope="row"><img class="avatar" src="~/Content/image/avatar.png" width="100" /></th>
+                            <td><a class="text-decoration-none" href="/General/UserProfile/@gamer.username">@gamer.username</a></td>
+                            <td>@gamer.gameType</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+</section>

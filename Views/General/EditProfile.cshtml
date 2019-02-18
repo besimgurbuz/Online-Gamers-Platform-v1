@@ -1,0 +1,88 @@
+﻿@model OnlineGamersPlatform.ViewModel.Profile
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var types = new List<string>();
+    types.Add("FPS");
+    types.Add("MMORPG");
+    types.Add("RPG");
+    types.Add("MOBA");
+    types.Add("INDIE");
+    types.Add("RACING");
+    types.Add("SPORT");
+}
+<link href="~/Content/footerStyle.css" rel="stylesheet" />
+<style>
+    .field-validation-error {
+        color: red;
+    }
+
+    .input-validation-error {
+        border: 2px solid red;
+    }
+</style>
+
+<div class="container" style="margin-top:7%">
+    <div class="row">
+        <div class="col">
+            <h3>Edit Profile</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @if (ViewBag.e == true)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
+            @if (ViewBag.s == true)
+            {
+                <div class="alert alert-success">
+                    @ViewBag.Success
+                </div>
+            }
+            @using (Html.BeginForm("EditProfile", "General", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Your full name" })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username)
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Username" })
+                    @Html.ValidationMessageFor(m => m.Username)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Descripe yourself" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.GameType)
+                    @Html.DropDownListFor(m => m.GameType, new SelectList(types, "GameType"), "Select game type", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.GameType)
+                </div>
+                <div class="custom-radio">
+                    <label>
+                        Are you a professional?
+                    </label><br />
+                    <label>
+                        @Html.RadioButtonFor(m => m.IsProf, "true")Yes
+                    </label>
+                    <label>
+                        @Html.RadioButtonFor(m => m.IsProf, "false")No
+                    </label>
+
+                </div>
+                <button type="submit" class="btn btn-outline-danger">Reload!</button>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+

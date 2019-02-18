@@ -1,0 +1,42 @@
+﻿@model List<OnlineGamersPlatform.Models.EntityFramework.Game>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .context{
+        margin-top: 8%;
+        margin-bottom: 5%;
+    }
+    .row {
+        margin-top: 1%;
+    }
+    footer{
+        margin:0;
+    }
+</style>
+
+<div class="container context">
+    <div class="row">
+        <h2>Welcome! @HttpContext.Current.User.Identity.Name</h2>
+    </div>
+    @foreach (var game in Model)
+    {
+        <div class="row">
+            <div class="col">
+                <h4>@game.gameName (@game.gameType)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="badge badge-success">New</span> @game.gameNew
+            </div>
+            <div class="col-4">
+                <span class="badge badge-success">New</span>@game.gameNew2
+            </div>
+            <div class="col-4">
+                <span class="badge badge-success">New</span>@game.gameNew3
+            </div>
+        </div>
+    }
+</div>
