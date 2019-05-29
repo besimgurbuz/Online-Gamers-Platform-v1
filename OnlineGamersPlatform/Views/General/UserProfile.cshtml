@@ -1,0 +1,76 @@
+﻿@model OnlineGamersPlatform.Models.EntityFramework.Gamer
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    img{
+        border-radius:50%;
+        margin-top: 10%;
+    }
+    .row{
+        margin-top:2%;
+    }
+</style>
+<link href="~/Content/footerStyle.css" rel="stylesheet" />
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col text-center">
+            <img src="~/Content/image/avatar.png" class="img" width="200" />
+        </div>
+    </div>
+    @if (ViewBag.get == false)
+    {
+        <div class="row text-center">
+            <div class="col">
+                <a href="/General/EditProfile">Edit Profile</a>
+            </div>
+        </div>
+    }
+    <div class="row text-center">
+        <div class="col">
+            <p class="text-muted">@Model.email</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h3>
+                @Model.name ( @Model.username )
+            </h3>
+                @if (ViewBag.get == false)
+                {
+                <p>You are following @OnlineGamersPlatform.Controllers.GeneralController.TotalFollowers(HttpContext.Current.User.Identity.Name) people.</p>
+                }
+                @if (ViewBag.get == true)
+                {
+
+                    if (OnlineGamersPlatform.Controllers.GeneralController.IsFollow(Model.username, HttpContext.Current.User.Identity.Name))
+                    {
+                        <a href="/General/Follow/@Model.username?remove=true" class="btn btn-outline-info">Unfollow</a>
+                    }
+                    else
+                    {
+                        <a href="/General/Follow/@Model.username?remove=false" class="btn btn-outline-primary">Follow</a>
+                    }
+                }
+            </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6>@(Model.isProf ? "Professinal Player" : null)</h6>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            <p>@Model.description</p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            <h4>@Model.gameType</h4>
+        </div>
+    </div>
+</div>
+
+
