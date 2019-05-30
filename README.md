@@ -1,15 +1,15 @@
 ## Online-Gamers-Platform-v1
 -This repository is meant to show what I can do with ASP.NET MVC
 
-# Goal
+### Goal
 Help players to find each other.
 
-# TODO
+### TODO
 1- Chat <br>
 2- More details about categories. <br>
 3- Improve player following system <br>
 
-# Screenshots
+### Screenshots
 ![](screenshots/ogpSC1.png)
 ![](screenshots/ogpSC3.png)
 ![](screenshots/ogpSC4.png)
