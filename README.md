@@ -1,6 +1,4 @@
 ## Online-Gamers-Platform-v1
--This repository is meant to show what I can do with ASP.NET MVC
-
 ### Goal
 Help players to find each other.
 
