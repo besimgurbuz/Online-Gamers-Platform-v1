@@ -3,9 +3,9 @@
 Help players to find each other.
 
 ### TODO
-1- Chat <br>
-2- More details about categories. <br>
-3- Improve player following system <br>
+1. Chat <br>
+2. More details about categories. <br>
+3. Improve player following system <br>
 
 ### Screenshots
 ![](screenshots/ogpSC1.png)
